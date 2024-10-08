@@ -165,7 +165,9 @@ class Environment:
                     sos += int(self.env_data[x][y])**2
         return sos
 
-my_env=Environment()
-my_env.load_env()
-test_location=my_env.get_location(2,1)
-print(test_location)
+
+if __name__=="__main__":
+    my_env=Environment()
+    my_env.load_env()
+    test_location=my_env.get_location(2,1)
+    print(test_location)
