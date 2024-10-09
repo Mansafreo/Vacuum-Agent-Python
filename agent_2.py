@@ -93,14 +93,6 @@ class Agent_2(Agent):
         elif prev_y > curr_y:
             return self.act("move_down")
     
-    def dirt_sense(self):
-        return self.current_cell != "-"
-    
-    def map_lookup(self, location):
-        x, y = location
-        #Check if a location exists and get the value, otherwise return false
-        return self.map.get((x, y), "Unexplored")
-    
     def sense(self,stimuli):
         x,y=self.get_location()
         if stimuli is True:

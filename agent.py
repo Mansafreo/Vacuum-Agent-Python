@@ -86,3 +86,11 @@ class Agent:
             self.last_action=6
             self.energy(0)
         return action
+    
+    def dirt_sense(self):
+        return self.current_cell != "-"
+    
+    def map_lookup(self, location):
+        x, y = location
+        #Check if a location exists and get the value, otherwise return Unexplored
+        return self.map.get((x, y), "Unexplored")

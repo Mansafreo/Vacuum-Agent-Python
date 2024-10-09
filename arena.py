@@ -9,7 +9,7 @@ my_env=Environment()
 my_env.load_env()
 
 #Instantiate the agent
-my_agent=Agent_1()
+my_agent=Agent_2()
 my_env.place_agent((1,1))
 time_steps=2000
 for i in range(time_steps):

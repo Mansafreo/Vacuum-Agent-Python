@@ -56,12 +56,6 @@ class Agent_1(Agent):
             else:
                 return self.act("idle")
 
-    #Function to allow the robot to look up a location in the map
-    def map_lookup(self, location):
-        x, y = location
-        #Check if a location exists and get the value, otherwise return false
-        return self.map.get((x, y), "Unexplored")
-
     #A function that allows the agent to sort of reason about the environment it's in
     def perceive(self):
         #Get it's current location
@@ -85,9 +79,3 @@ class Agent_1(Agent):
         }
         print(data)
         return data
-
-    def dirt_sense(self):
-        #check if it's current cell is clean
-        if self.current_cell!="-":
-            return True
-        
