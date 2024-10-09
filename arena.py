@@ -10,7 +10,7 @@ my_env.load_env()
 
 #Instantiate the agent
 my_agent=Agent_1()
-my_env.place_agent((5,5))
+my_env.place_agent((1,1))
 time_steps=2000
 for i in range(time_steps):
     #Print the environment and pause the script for a fraction of a second to animate the environment movement
@@ -26,7 +26,7 @@ for i in range(time_steps):
     # print(f"Map->{my_agent.map}")
     # print(f'step: {i}')
     # time.sleep(0.01)
-    time.sleep(0.01)
+    #time.sleep(0.01)
     #Build up dirt 
     my_env.random_dirt_build(probability=0.01)
     #input("Press Enter to continue...")
@@ -35,7 +35,7 @@ for i in range(time_steps):
 #The agent will move around the environment and clean the dirt in the environment
 #The agent will move randomly and clean randomly
 #The agent will be placed in the center of the environment
-#The agent will move around for 1000 time steps
+#The agent will move around for 2000 time steps
 
 #Print the sum of squares of dirt in the envrionment
 print(f'sum of dirt_squared: {my_env.dirt_sos()}')

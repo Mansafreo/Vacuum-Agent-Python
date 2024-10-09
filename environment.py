@@ -8,8 +8,7 @@ class Environment:
        self.agent_cell=""
        self.stacks_cleaned=0
     #The load_env method reads the environment file and loads the environment data into a list
-    def load_env(self):
-        filename="env.map"
+    def load_env(self,filename="./maps/env.map"):
         file = open(filename, "r")#open the file in read mode
         env_data = []#create an empty list
         #read the file line by line

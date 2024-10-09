@@ -40,11 +40,11 @@ class Agent_2(Agent):
         
         # If no unexplored cells, move to an explorable cell or backtrack
         elif explorable:
-            actions=["idle","move"]
-            decision=choice(actions)
-            if decision=="idle":
-                self.act("idle")
-            else:
+            # actions=["idle","move"]
+            # decision=choice(actions)
+            # if decision=="idle":
+            #     self.act("idle")
+            # else:
                 move = choice(explorable)
                 self.stack.append(self.get_location())
                 return self.act(f"move_{move}")
@@ -158,7 +158,3 @@ class Agent_2(Agent):
 
     def energy(self, amount):
         self.energy_consumed += amount
-
-if __name__ == "__main__":
-    agent = ImprovedAgent()
-    print(agent.map)

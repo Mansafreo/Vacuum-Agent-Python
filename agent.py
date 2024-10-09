@@ -33,23 +33,56 @@ class Agent:
     def perceive():
         pass
 
-    def sense():
-        pass
+    def sense(self,stimuli):
+        x,y=self.get_location()
+        if stimuli is True:
+            #This means that the area is movable and probably should be mapped if ot doesn't exist
+            #check what the last move was so it can be added to the map correctly
+            if self.last_action=="up":
+                self.map[x,y-1]=1
+                #Update it's current location
+                self.y-=1
+            elif self.last_action=="down":
+                self.map[x,y+1]=1
+                self.y+=1
+            elif self.last_action=="left":
+                self.map[x-1,y]=1
+                self.x-=1
+            elif self.last_action=="right":
+                self.map[x+1,y]=1
+                self.x+=1
+        elif stimuli is False:
+            #Must have been a bump
+            if self.last_action=="up":
+                self.map[x,y-1]=0
+            elif self.last_action=="down":
+                self.map[x,y+1]=0
+            elif self.last_action=="left":
+                self.map[x-1,y]=0
+            elif self.last_action=="right":
+                self.map[x+1,y]=0
+
 
     #A function that implements the agent's actions
     def act(self,action):
         #For this first agent, the movement will be random and cleaning will be random as well
         #moving costs 1 energy, idling 0 , cleaning 2
         if action == "move_up":
+            self.last_action="up"
             self.energy(1)
         elif action == "move_down":
+            self.last_action="down"
             self.energy(1)
         elif action == "move_left":
+            self.last_action="left"
             self.energy(1)
         elif action == "move_right":
+            self.last_action="right"
             self.energy(1)
         elif action == "clean":
+            self.last_action=5
             self.energy(2)
         elif action == "idle":
+            self.last_action=6
             self.energy(0)
         return action
