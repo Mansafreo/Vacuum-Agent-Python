@@ -128,26 +128,39 @@ class Environment:
                 self.agent_cell=self.get_location(x-1,y)
                 #Move the agent
                 self.move_agent((x-1,y))
+                return True
+            else:
+                #Meaning there was a bump
+                return False
         elif action == "move_down":
             if self.env_data[x+1][y] != "O":
                 self.env_data[x][y] = self.agent_cell
                 self.agent_cell=self.get_location(x+1,y)
-                self.move_agent((x+1,y))    
+                self.move_agent((x+1,y))   
+                return True 
+            else:
+                return False
         elif action == "move_left":
             if self.env_data[x][y-1] != "O":
                 self.env_data[x][y] = self.agent_cell 
                 self.agent_cell=self.get_location(x,y-1)
-                self.move_agent((x,y-1))   
+                self.move_agent((x,y-1))  
+                return True
+            else:
+                return False 
         elif action == "move_right":
             if self.env_data[x][y+1] != "O":
                 self.env_data[x][y] = self.agent_cell
                 self.agent_cell=self.get_location(x,y+1)
-                self.move_agent((x,y+1))    
+                self.move_agent((x,y+1))
+                return True 
+            else:
+                return False
         elif action == "clean":
             self.clean_cell()
+            return None
         elif action == "idle":
-            pass
-        return self.env_data[x][y]
+            return None
     
     #function to print the environment to the terminal
     def print_env(self):
