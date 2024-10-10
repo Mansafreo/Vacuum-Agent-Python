@@ -7,6 +7,25 @@ class Environment:
        #agent moves without cleaning, we can restore the cell as it was
        self.agent_cell=""
        self.stacks_cleaned=0
+       self.emojify=False
+       self.emoji_dict={
+           #A check to represent a clean room
+           "-":"\u2705",
+           #A brick wall to represent a wall
+           "O":"🧱",
+           #A robot to represent the agent
+           "A":"🤖",
+           #Replace numbers with a given colour ro represnt the level of dirt
+           "1":"💩",
+              "2":"💩",
+              "3":"💩",
+              "4":"💩",
+                "5":"💩",
+                "6":"💩",
+                "7":"💩",
+                "8":"💩",
+                "9":"💩" 
+       }
     #The load_env method reads the environment file and loads the environment data into a list
     def load_env(self,filename="./maps/env.map"):
         file = open(filename, "r")#open the file in read mode
@@ -161,6 +180,9 @@ class Environment:
         #First clear the terminal for each frame
         print("\033c")
         for row in self.env_data:
+            if self.emojify is True:
+                #Replace the members of the row with the corresponding emojis in the dictionary
+                row=[self.emoji_dict.get(i,i) for i in row]
             print(" ".join(row))
         print("\n")
     #Get the sum of squares of dirt in the environment
