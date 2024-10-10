@@ -37,12 +37,7 @@ class Environment:
     #The x co-ordinate represents the row and the y co-ordinate represents the column
     def get_location(self, x, y):
         return self.env_data[x][y]
-    
-    #Function to edit the environment
-    def edit_environmet(self, x, y, value):
-        self.env_data[x][y] = value
-        return self.env_data[x][y]
-    
+       
     #Function to make a certain cell dirty periodically 
     def dirt_build(self,location):
         x,y=location
