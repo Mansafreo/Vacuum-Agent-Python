@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/feb4e990-a70a-444d-8c23-4347781481d5" alt="logo"/>
+</p>
+
 # Vacuum Cleaner Agent in a maze world
 ## Introduction
 This project is a simple implementation of a vacuum cleaner agent in a maze world. The agent is able to move in the maze world and clean the dirty cells. The agent is able to move in four directions: up, down, left, and right. The agent is able to sense the environment and determine whether a cell(room) is dirty or not. The agent is able to clean the dirty cells. The agent also has a bump sensor so it can detect if it hits a wall as it moves.
