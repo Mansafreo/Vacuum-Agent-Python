@@ -9,7 +9,7 @@ my_env=Environment()
 my_env.load_env()
 
 #Instantiate the agent
-my_agent=Agent_2()
+my_agent=Agent_1()
 my_env.place_agent((1,1))
 time_steps=2000
 for i in range(time_steps):
@@ -19,14 +19,13 @@ for i in range(time_steps):
     agent_action=my_agent.think()
     response=my_env.accept_agent_action(agent_action)
     my_agent.sense(response)
-    # print(f"Agent Cell->{my_env.agent_cell}")
-    # print(f"Agent Location->{my_env.get_agent_location()}")
-    # print(f"Agent Action->{agent_action}")
-    # print(f"Response->{response}")
-    # print(f"Map->{my_agent.map}")
-    # print(f'step: {i}')
-    # time.sleep(0.01)
-    #time.sleep(0.01)
+    print(f"Agent Cell->{my_env.agent_cell}")
+    print(f"Agent Location->{my_env.get_agent_location()}")
+    print(f"Agent Action->{agent_action}")
+    print(f"Response->{response}")
+    print(f"Map->{my_agent.map}")
+    print(f'step: {i}')
+    time.sleep(0.01)
     #Build up dirt 
     my_env.random_dirt_build(probability=0.01)
     #input("Press Enter to continue...")
